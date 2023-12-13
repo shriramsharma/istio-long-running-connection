@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1beta1
+kind: ServiceEntry
+metadata:
+  name: httpbin-mesh-se
+spec:
+  addresses:
+  - 240.0.10.1
+  endpoints:
+  - address: httpbin.httpbin.svc.cluster.local
+    locality: us-west-2
+    ports:
+      http: 8000
+  hosts:
+  - httpbin.mesh.global
+  location: MESH_INTERNAL
+  ports:
+  - name: http
+    number: 80
+    protocol: http
+  resolution: DNS
