@@ -55,6 +55,7 @@ sleep:
 	kubectl --kubeconfig $(HOME)/.kube/kind/$(clustername) create ns sleep 
 	kubectl --kubeconfig $(HOME)/.kube/kind/$(clustername) label --overwrite namespace sleep istio-injection=enabled
 	kubectl --kubeconfig $(HOME)/.kube/kind/$(clustername) apply -f $(istio_root)/samples/sleep/sleep.yaml -n sleep 
+	kubectl --kubeconfig $(HOME)/.kube/kind/$(clustername) apply -f sleep-ef.yaml -n sleep 
 
 #-------------------------------------------------
 # Target: Fortio install 
